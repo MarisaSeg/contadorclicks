@@ -1,15 +1,21 @@
 import freeCodeCampLogo from './img/freecodecamp-logo.jpg';
 import './App.css';
 import Boton from './componentes/Boton';
+import Contador from './componentes/contador';
+import { useState } from 'react';
+
 function App() {
+  //Hooks
+  const [numClicks, setNumCliks] = useState(0);
 
   const manejarClick = ()=> {
-    console.log('click');
-  }
+    setNumCliks(numClicks + 1);
+  };
 
   const reiniciarContador = () => {
-    console.log('Reiniciar');
-  }
+   setNumCliks(0);
+  };
+  
   return (
     <div className="app">
       <div className="freecodecamp-logo-contenedor">
@@ -21,16 +27,20 @@ function App() {
       </div>
 
       <div className='contenedor-principal'>
+
+        <Contador numClicks={numClicks} />
+
+        <Boton  
+          texto='Click'
+          esBotonDeClick={true}
+          manejarClick={manejarClick}
+        /> 
+
         <Boton 
           texto='Reiniciar'
           esBotonDeClick={false}
           manejarClick={reiniciarContador}
         />
-        <Boton 
-          texto='Click'
-          esBotonDeClick={true}
-          manejarClick={manejarClick}
-        /> 
       </div>
     </div>
   );
