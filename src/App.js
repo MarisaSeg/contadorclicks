@@ -27,7 +27,6 @@ function App() {
           manejarClick={reiniciarContador}
         />
         <Boton 
-          oton 
           texto='Click'
           esBotonDeClick={true}
           manejarClick={manejarClick}
